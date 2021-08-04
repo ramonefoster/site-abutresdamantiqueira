@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>header}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="css/members.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="container">
+        {{>navbar}}
+        <div class="main">
+            <input type="text" style="width: 450px;" id="myInput" onkeyup="buscaFunc()" placeholder="Buscar por Equipe" title="Digite um nome">
+            <table id="myTable">
+                <tr>
+                    <th>Nome da equipe</th>
+                    <th>Membros</th>
+                    <th>Pagamento</th>
+                    <th>Inscricao</th>
+                </tr>
+
+                <tr>
+                    <td><b>Sei la o que</b></td>
+                    <td>4</td>
+                    <td><i class="bi bi-check-circle-fill" style="color: rgb(6, 170, 0);"></i></td>
+                    <td><i class="bi bi-file-earmark-pdf-fill" ></i></td>
+                </tr>
+
+                <tr>
+                    <td><b>Equipe Havewavers</b></td>
+                    <td>6</td>
+                    <td><i class="bi bi-x-circle-fill" style="color: rgb(255, 0, 0);"></i></td>
+                    <td><i class="bi bi-file-earmark-pdf-fill"></i></td>
+                </tr>
+
+            </table>
+
+        </div>
+    </div>
+    <script>
+function buscaFunc() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>header}}
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+</head>
+
+<body>
+    <main role="main">
+        <section class="py-5 text-center img-container" style="background-image: url('img/enduro-bg2.jpg'); opacity: 0.8">
+            <div class="row py-lg-5">
+                <div class="col-lg-6 col-md-8 mx-auto bg">
+                    <h1 class="fw-light text-white" style="text-shadow: 2px 2px rgb(0, 0, 0);">Enduro a Pe da Serra
+                    </h1>
+                    <p class="lead text-white" style="text-shadow: 2px 2px rgb(0, 0, 0);">O patrocínio deste
+                        projeto resultara
+                        em ações que resultaram em grandes melhorias
+                        a comunidade em geral.</p>
+                    <p>
+                        <a href="/doar" class="btn btn-warning my-2">Financie nossos projetos</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+        <br><br>
+        <!-- Marketing messaging and featurettes
+      ================================================== -->
+        <!-- Wrap the rest of the page in another container to center all the content. -->
+
+        <div class="container marketing">
+
+            <!-- Three columns of text below the carousel -->
+            <div class="row">
+                <div class="col-lg-4">
+                    <img class="rounded-circle" src="img/enduro1.jpg" alt="" width="240" height="240">
+                    <h2>Enduro</h2>
+                    <p>Um texto sobre o enduro, pode ser algo breve mas que consiga descrever a atividade e alguns
+                        objetivos serao listados aqui ao lado, como,
+                        por exemplo, o plantio.
+                    </p>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <img class="rounded-circle" src="img/enduro2.jpg" alt="" width="240" height="240">
+                    <h2>Conecte-se com a natureza</h2>
+                    <p>Nao e apensa uma competicao, mas um momento de contemplacao junto da atividade. Podemos elaborar
+                        um texto mais interessante, talvez falar da prova especial
+                        ou citar curiosidades para a edicao que esta por vir
+                    </p>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <img class="rounded-circle" src="img/enduro4.jpg" alt="" width="240" height="240">
+                    <h2>Plantio</h2>
+                    <p>Durante a prova, diversas mudas produzidas em nosso viveiro sao plantadas por cada equipe
+                        participante, alinhando o esporte de aventura
+                        com a consciencia ambiental
+                    </p>
+                </div><!-- /.col-lg-4 -->
+            </div><!-- /.row -->
+
+
+            <!-- START THE FEATURETTES -->
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading">Por que caminhamos? <span class="text-muted"></span>
+                    </h2>
+                    <p class="lead" style="text-align: justify; font-size: 18px">
+                        <span class="glyphicon glyphicon-pushpin"></span> Conscientizar os participantes e a população
+                        local para a importância e necessidade
+                        de se fazer algo de concreto em prol da preservação e conservação ambiental
+                    </p>
+                    <p class="lead" style="text-align: justify; font-size: 18px"><span
+                            class="glyphicon glyphicon-pushpin"></span> Divulgar o turismo na região da Serra da
+                        Mantiqueira</p>
+                    <p class="lead" style="text-align: justify; font-size: 18px"><span
+                            class="glyphicon glyphicon-pushpin"></span> Desenvolver hábitos saudáveis direcionados ao
+                        processo de desenvolvimento da
+                        cidadania</p>
+                    <p class="lead" style="text-align: justify; font-size: 18px"><span
+                            class="glyphicon glyphicon-pushpin"></span> Divulgar o esporte de aventura junto à natureza
+                    </p>
+                    <p><a class="btn btn-secondary" href="/doar" role="button">Contribua com este projeto »</a></p>
+                </div>
+                <div class="col-md-5">
+                    <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500"
+                        style="width: 400px; height: 400px; border-radius: 5%;" src="img/enduro3.jpg"
+                        data-holder-rendered="true">
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette">
+
+                {{!-- ----- MAPA INDICANDO LOCAL DA LARGADA, POR EXEMPLO --- --}}
+
+                <div class="col-md-7">
+                    <h2 class="featurette-heading">Local da Largada e recomendacoes<span class="text-muted"></span>
+                    </h2>
+                    <p class="lead" style="text-align: justify; font-size: 18px"><span
+                            class="bi bi-card-checklist figura"></span> Nao se esqueca do comprovante de inscricao</p>
+                    <p class="lead" style="text-align: justify; font-size: 18px"><span
+                            class="bi bi-bag-plus-fill figura"></span> Chegue ao menos 30min antes do horario da
+                        largada, para que seu kit seja entregue</p>
+                    <p class="lead" style="text-align: justify; font-size: 18px"><span
+                            class="bi bi-clipboard-minus figura"></span> Cuide bem de sua planilha, ela sera essencial
+                        para a prova</p>
+                    <p class="lead" style="text-align: justify; font-size: 18px"><span
+                            class="bi bi-wifi-off figura"></span> Falar ao celular durante a prova nao e permitido
+                        (exceto emergencias)</p>
+                    <p class="lead" style="text-align: justify; font-size: 18px"><span
+                            class="bi bi-flower1 figura"></span> Preserve a natureza ao seu redor. Respeite-a para que
+                        todos possam desfruta-la</p>
+                    <p class="lead" style="text-align: justify; font-size: 18px"><span
+                            class="bi bi-trophy-fill figura"></span> Diveros premios para as 10 equipes melhor colocadas</p>
+
+
+                </div>
+                <div class="col-md-5">
+
+                    <div id='map' style='width: 400px; height: 400px; border-radius: 5%;'></div>
+                    <script>
+                        mapboxgl.accessToken = 'pk.eyJ1IjoicmFtb25lZm9zdGVyIiwiYSI6ImNrbmV5dXlyMDFqNHIydXBrb3g2YnpqdzkifQ.OyqEcwHH0Jjn4q56K5bCOQ';
+                        var map = new mapboxgl.Map({
+                            container: 'map',
+                            style: 'mapbox://styles/mapbox/streets-v11',
+                            center: [-45.496620, -22.526063],
+                            zoom: 16
+                        });
+                        var geojson = {
+                            type: 'FeatureCollection',
+                            features: [{
+                                type: 'Feature',
+                                geometry: {
+                                    type: 'Point',
+                                    coordinates: [-45.496620, -22.526063]
+                                },
+                                properties: {
+                                    title: 'LARGADA',
+                                    description: 'Praca Primeiro de Marco'
+                                }
+                            }]
+                        };
+                        geojson.features.forEach(function (marker) {
+
+                            // create a HTML element for each feature
+                            var el = document.createElement('div');
+                            el.className = 'marker';
+
+                            // make a marker for each feature and add to the map
+                            new mapboxgl.Marker(el)
+                                .setLngLat(marker.geometry.coordinates)
+                                .setPopup(
+                                    new mapboxgl.Popup({ offset: 25 }) // add popups
+                                        .setHTML(
+                                            '<h5>' +
+                                            marker.properties.title +
+                                            '</h5><p>' +
+                                            marker.properties.description +
+                                            '</p>'
+                                        )
+                                )
+                                .addTo(map);
+                        });
+
+
+
+
+                    </script>
+                </div>
+
+                <hr class="featurette-divider">
+
+
+                {{>footer}}
+</body>
+
+</html>

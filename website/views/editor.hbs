@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>header}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="css/members.css" rel="stylesheet">
+</header>
+
+    <script src="https://cdn.tiny.cloud/1/wrsobm531iap3kr3801ynznjhnh9gxrtujta71r0o43hp6ys/tinymce/5/tinymce.min.js"
+        referrerpolicy="origin"></script>
+
+    <script>
+
+        tinymce.init({
+            selector: '#materia_conteudo',
+            plugins: 'image code table link',
+            toolbar: 'insert | undo redo |  styleselect | bold italic backcolor  | alignleft aligncenter alignright | bullist numlist outdent indent | image link',
+            file_picker_callback: function (callback, value, meta) {
+                if (meta.filetype == 'image') {
+                    var input = document.getElementById('my-file');
+                    input.click();
+                    input.onchange = function () {
+                        var file = input.files[0];
+                        var reader = new FileReader();
+                        reader.onload = function (e) {
+                            callback(e.target.result, {
+                                alt: file.name
+                            });
+                        };
+                        reader.readAsDataURL(file);
+                    };
+                }
+            },
+
+            external_plugins: {
+
+                'tiny_mce_wiris': 'https://www.wiris.net/demo/plugins/tiny_mce/plugin.js'
+
+            },
+            images_upload_url: '/upload'
+
+        });
+    </script>
+
+
+</head>
+
+<body>
+    <div class="container">
+        {{>navbar}}
+        <div class="main">
+            <input id="my-file" type="file" name="my-file" style="display: none;" onchange="" />
+
+            {{!-- <div class="container pd-1"> --}}
+
+                <form action="/success" method="POST">
+
+                    {{#if alert}}
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>OPA!</strong> {{alert}}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    {{/if}}
+                    {{#if success}}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>OPA!</strong> {{success}}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    {{/if}}
+
+                    <div class="input-field">
+                        <input type="text" name="materia_titulo" id="materia_titulo" placeholder="Titulo da Materia">
+                    </div>
+                    <div class="input-field">
+                        <input type="text" name="materia_subtitulo" id="materia_subtitulo"
+                            placeholder="Subtitulo da Materia">
+                    </div>
+                    <div class="input-field">
+                        <input style="width: 300px;" type="text" name="materia_tag" id="materia_tag"
+                            placeholder="Tag (palavra-chave)">
+                    </div>
+                    <textarea rows="25" name="materia_conteudo" id="materia_conteudo"></textarea>
+                    <input type="submit" class="publish-btn" name="submit_materia" value="Publicar">
+                </form>
+            </div>
+        </div>
+
+        <br>
+        <br>
+        {{!-- --}}
+
+        {{>footer}}
+
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>

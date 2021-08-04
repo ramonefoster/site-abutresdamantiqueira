@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>header}}
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+    <main>
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active" style="height: 500px;">
+                    <img class="d-block w-100" style="opacity: 0.7;" src="img/bg1.jpg" alt="Primeiro Slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1 style="text-shadow: 2px 2px black;"><a href="#" style="color:snow">ABUTRES DA
+                                MANTIQUEIRA</a></h1>
+                        <h2 style="text-shadow: 2px 2px black;">Inspire-se</h2>
+                    </div>
+                </div>
+                <div class="carousel-item" style="height: 500px;">
+                    <img class="d-block w-100" style="opacity: 0.7;" src="img/enduro-bg.jpg" alt="Segundo Slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1 style="text-shadow: 2px 2px black;"><a href="/enduro" style="color:snow">Vem ai o XIII
+                                Endura a Pe da Serra</a></h1>
+                        <h2 style="text-shadow: 2px 2px black;">Esporte de aventura com consciencia socio-ambiental</h2>
+                    </div>
+                </div>
+                <div class="carousel-item" style="height: 500px;">
+                    <img class="d-block w-100" style="opacity: 0.7;" src="img/background.jpg" alt="Terceiro Slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1 style="text-shadow: 2px 2px black;"><a href="/viveiro" style="color:snow">Viveiro de Mudas</a></h1>
+                        <h2 style="text-shadow: 2px 2px black;">Conheca nossa variedade de mudas nativas!</h2>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Anterior</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Próximo</span>
+            </a>
+        </div>
+        <div class="upper-section">
+            <div class="container">
+                <br>
+                <h1>Nossos Projetos</h1>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <img class="rounded-circle" src="img/project1.jpg" alt="" width="240" height="240">
+                        <h6>Enduro a Pe da Serra</h6>
+                        <p style="color:snow;">A prática de enduro a pé ou trekking promove a interação com a natureza e
+                            as
+                            tradições do meio rural, permitindo a contemplação das nossas belezas
+                            naturais.</p>
+                        <p><a class="btn btn-outline-warning" href="/enduro" role="button">Saiba mais »</a></p>
+                    </div><!-- /.col-lg-4 -->
+                    <div class="col-lg-4">
+                        <img class="rounded-circle" src="img/project2.jpg" alt="" width="240" height="240">
+                        <h6>Viveiro de Mudas</h6>
+                        <p style="color:snow;">Disponibilizamos aqui as espécies de árvores que temos disponíveis, o
+                            preço pode
+                            variar conforme a quantidade.</p><br>
+                        <p><a class="btn btn-outline-warning" href="/viveiro" role="button">Saiba mais »</a></p>
+                    </div><!-- /.col-lg-4 -->
+                    <div class="col-lg-4">
+                        <img class="rounded-circle" src="img/project3.jpg" alt="" width="240" height="240">
+                        <h6>Coletor de pilhas/baterias</h6>
+                        <p style="color:snow;">Promover uma melhoria no descarte de materiais recicláveis, com coletas
+                            em
+                            diversos
+                            pontos.</p><br>
+                        <p><a class="btn btn-outline-warning" href="/pilhasebaterias" role="button">Saiba mais »</a></p>
+                    </div><!-- /.col-lg-4 -->
+                </div><!-- /.row -->
+            </div>
+        </div>
+        <div class="section-divider" style="background-color: #1a3046;">
+            <div class="container">
+                <br>
+                <h2 style="color: snow;">Ultimas noticias</h2>
+                <div class="row">
+                    {{#each materiasArray}}
+                    <div class="col-lg-4">
+                        {{#if imagem}}
+                        <img class="featurette-image img-fluid mx-auto"
+                            style="width: 300px; height: 300px; border-radius: 5%;" src="{{imagem}}">
+                        {{else}}
+                        <img class="featurette-image img-fluid mx-auto"
+                            style="width: 300px; height: 300px; border-radius: 5%;" src="img/logo1.jpg">
+                        {{/if}}
+                        <h6>{{titulo}}</h6>
+
+                        <p style="color:snow;">{{subtitulo}}</p>
+                        <p><a class="btn btn-outline-warning" href="/{{id}}" role="button">Saiba mais »</a></p>
+                    </div><!-- /.col-lg-4 -->
+                    {{/each}}
+
+                </div><!-- /.row -->
+            </div>
+        </div>
+
+
+    </main>
+    </main>
+
+    {{>footer}}
+</body>
+
+</html>

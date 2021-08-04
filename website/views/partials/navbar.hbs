@@ -1,0 +1,34 @@
+<div class="sidebar">
+    <a href="/membros"><i class="fa fa-fw fa-home"></i> Home</a>
+    <button class="dropdown-btn"><i class="bi bi-tree-fill"></i> Viveiro <i class="bi bi-arrow-down-short"></i>
+    </button>
+    <div class="dropdown-container">
+        <a href="/membro-viveiro"><i class="fa fa-fw fa-home"></i> Visao Geral</a>
+        <a href="/membro-viv-edit"><i class="bi bi-gear-fill"></i> Editar Mudas</a>
+        <a href="/membro-viv-add"><i class="bi bi-gear-fill"></i> Adicionar Mudas</a>
+
+    </div>
+    <a href="/editor"><i class="bi bi-file-font-fill"></i> Criar Materia</a>
+    <a href="/membro-enduro"><i class="bi bi-file-pdf-fill"></i> Inscricoes Enduro</a>
+    <br>
+    <a href="/logout"><i class="bi bi-backspace-reverse-fill"></i> Sair</a>
+
+</div>
+
+<script>
+    /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+    var dropdown = document.getElementsByClassName("dropdown-btn");
+    var i;
+
+    for (i = 0; i < dropdown.length; i++) {
+        dropdown[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var dropdownContent = this.nextElementSibling;
+            if (dropdownContent.style.display === "block") {
+                dropdownContent.style.display = "none";
+            } else {
+                dropdownContent.style.display = "block";
+            }
+        });
+    }
+</script>

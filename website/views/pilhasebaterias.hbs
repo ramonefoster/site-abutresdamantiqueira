@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>header}}
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+</head>
+
+<body>
+    <main role="main">
+        <section class="py-5 text-center img-container" style="background-image: url('img/recy-bg.jpg'); opacity: 0.8">
+            <div class="row py-lg-5">
+                <div class="col-lg-6 col-md-8 mx-auto bg">
+                    <h1 class="fw-light text-dark" style="text-shadow: 2px 2px rgb(199, 197, 197);">Coleta de Pilas e
+                        Baterias
+                    </h1>
+                    <p class="lead text-dark" style="text-shadow: 2px 2px rgb(199, 197, 197);">O patrocínio deste
+                        projeto resultara
+                        em ações que resultaram em grandes melhorias
+                        a comunidade em geral.</p>
+                    <p>
+                        <a href="/doar" class="btn btn-dark my-2">Financie nossos projetos</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+        <br><br>
+        <!-- Marketing messaging and featurettes
+      ================================================== -->
+        <!-- Wrap the rest of the page in another container to center all the content. -->
+
+        <div class="container marketing">
+
+            <!-- Three columns of text below the carousel -->
+            <div class="row">
+                <div class="col-lg-4">
+                    <img class="rounded-circle" src="img/pilhas1.png" alt="" width="240" height="240">
+                    <h2>Recicle!</h2>
+                    <p>Classificadas como resíduos perigosos e compostos de metais pesados
+                        altamente tóxicos e não biodegradáveis, como cádmio, chumbo e mercúrio, depois de
+                        utilizadas, a maioria é jogada em lixos comuns e vai para aterros sanitários ou lixões a céu
+                        aberto</p>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <img class="rounded-circle" src="img/pilhas_baterias.png" alt="" width="240" height="240">
+                    <h2>Mantenha a agua saudavel</h2>
+                    <p>Retirando esses materiais da natureza, evitamos que nossos lencois freaticos sejam poluidos.
+                        Pirangucu e uma cidade rica em
+                        nascentes e fontes minerais de agua.
+                    </p>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <img class="rounded-circle" src="img/pilha2.png" alt="" width="240" height="240">
+                    <h2>Parceria em Pirangucu</h2>
+                    <p>A União de Catadores também poderá ceder técnicos para celebração de
+                        palestras, sendo assim incorporada uma renda a mais no orçamento da entidade e dos
+                        agentes recicladores.</p>
+                </div><!-- /.col-lg-4 -->
+            </div><!-- /.row -->
+
+
+            <!-- START THE FEATURETTES -->
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading">Por que coletamos pilhas e baterias? <span class="text-muted"></span>
+                    </h2>
+                    <p class="lead" style="text-align: justify; font-size: 18px">
+                        <span class="glyphicon glyphicon-pushpin"></span> Coletar e dar destino final adequado a pilhas
+                        e baterias descartadas no
+                        território do município de Piranguçu;
+                    </p>
+                    <p class="lead" style="text-align: justify; font-size: 18px"><span
+                            class="glyphicon glyphicon-pushpin"></span> Proteger o meio ambiente reduzindo os riscos de
+                        contaminação do solo, do
+                        lençol freático e dos cursos d água;</p>
+                    <p class="lead" style="text-align: justify; font-size: 18px"><span
+                            class="glyphicon glyphicon-pushpin"></span> Promover a saúde e reduzindo os riscos de
+                        contaminação da água e
+                        consequentemente as comorbidades provocadas pela mesma;</p>
+                    <p class="lead" style="text-align: justify; font-size: 18px"><span
+                            class="glyphicon glyphicon-pushpin"></span> Conscientizar a população de todas as faixas
+                        etárias e níveis sociais para a
+                        prática da reciclagem de forma correta.</p>
+                    <p class="lead" style="text-align: justify; font-size: 18px"><span
+                            class="glyphicon glyphicon-pushpin"></span> Fortalecer a cidadania, autodeterminação das
+                        comunidades e solidariedade
+                        como fundamentos para o futuro da humanidade.</p>
+                    <p><a class="btn btn-secondary" href="/doar" role="button">Contribua com este projeto »</a></p>
+                </div>
+                <div class="col-md-5">
+                    <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500"
+                        style="width: 400px; height: 400px; border-radius: 5%;" src="img/project3.jpg"
+                        data-holder-rendered="true">
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading">Onde descartar minhas pilas/baterias?<span class="text-muted"></span>
+                    </h2>
+                    <h4 class="featurette-heading">Confira no mapa os locais onde voce pode encontrar nossos
+                        coletores<span class="text-muted"></span>
+                    </h4>
+
+                </div>
+                <div class="col-md-5">
+
+                    <div id='map' style='width: 400px; height: 400px; border-radius: 5%;'></div>
+                    <script>
+                        mapboxgl.accessToken = 'pk.eyJ1IjoicmFtb25lZm9zdGVyIiwiYSI6ImNrbmV5dXlyMDFqNHIydXBrb3g2YnpqdzkifQ.OyqEcwHH0Jjn4q56K5bCOQ';
+                        var map = new mapboxgl.Map({
+                            container: 'map',
+                            style: 'mapbox://styles/mapbox/streets-v11',
+                            center: [-45.495, -22.528],
+                            zoom: 14
+                        });
+                        var geojson = {
+                            type: 'FeatureCollection',
+                            features: [{
+                                type: 'Feature',
+                                geometry: {
+                                    type: 'Point',
+                                    coordinates: [-45.495564, -22.528943]
+                                },
+                                properties: {
+                                    title: 'VISA',
+                                    description: 'Vigilancia Sanitaria'
+                                }
+                            },
+                            {
+                                type: 'Feature',
+                                geometry: {
+                                    type: 'Point',
+                                    coordinates: [-45.496665, -22.525335]
+                                },
+                                properties: {
+                                    title: 'EEMC',
+                                    description: 'Escola Estadual Mario casassanta'
+                                }
+                            }]
+                        };
+                        geojson.features.forEach(function (marker) {
+
+                            // create a HTML element for each feature
+                            var el = document.createElement('div');
+                            el.className = 'marker';
+
+                            // make a marker for each feature and add to the map
+                            new mapboxgl.Marker(el)
+                                .setLngLat(marker.geometry.coordinates)
+                                .setPopup(
+                                    new mapboxgl.Popup({ offset: 25 }) // add popups
+                                        .setHTML(
+                                            '<h5>' +
+                                            marker.properties.title +
+                                            '</h5><p>' +
+                                            marker.properties.description +
+                                            '</p>'
+                                        )
+                                )
+                                .addTo(map);
+                        });
+
+
+
+
+                    </script>
+                </div>
+
+                <hr class="featurette-divider">
+
+
+                {{>footer}}
+</body>
+
+</html>

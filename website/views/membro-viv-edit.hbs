@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>header}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="css/members.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+</head>
+
+<body>
+    <div class="container">
+        {{>navbar}}
+        <div class="main">
+            <input type="text" id="myFilter" style="width: 450px;" onkeyup="myFunction()"
+                placeholder="Buscar por especie" title="Digite uma especie"> <i class="bi bi-search"></i>
+            <div class="row" id="CardId">
+                {{#each viveiroArray}}
+                <div class="col-md-4">
+                    <div class="card" style="box-shadow:3px 3px rgba(0, 0, 0, 0.349); border-radius: 25px; border: 2px solid rgb(219, 233, 157);"><p></p>
+                        <center><img src="{{imagem}}" alt="{{especie}}"
+                               class="rounded-circle zoom" width="150" height="150"></center>
+                        <div class="container">
+                            <center>
+                                <div class=" card-title">
+                                    <h2>{{especie}}</h2>
+                                </div>
+                            </center>
+                            <button class="accordion">Descricao <i class="bi bi-chevron-double-down"></i></button>
+                            <div class="panel">
+                                <p><i>tag: {{tag}}</i> - # <b>{{quantidade}}</b></p>
+                                <p>{{descricao}}</p>
+                            </div>
+
+                            <button class="accordion">Editar <i class="bi bi-chevron-double-down"></i></button>
+                            <div class="panel">
+                                <form action="/membro-viv-edit" method="post">
+                                    <div class="container" >
+                                        <label for="vespecie"><b>Especie</b></label>
+                                        <input type="text" value="{{especie}}" placeholder="Nome da especie"
+                                            name="especie" required>
+                                        <div class="row">
+                                            <div class="col-md-6"> <label for="vquantidade"><b>Quantidade</b></label>
+                                                <input type="text" value="{{quantidade}}" placeholder="0"
+                                                    name="quantidade">
+                                            </div>                                            
+                                            <div class="col-md-6"> <label for="vpreco"><b>Preco</b></label>
+                                                <input type="text" value="{{preco}}" placeholder="R$ 00.00"
+                                                    name="preco">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8"> <label for="vtag"><b>Tag</b></label>
+                                                <input type="text" value="{{tag}}" placeholder="ex: nativa" name="tag">
+                                            </div>
+                                        <label for="vdescricao"><b>Descricao</b></label>
+                                        <textarea name="descricao" rows="10" cols="25">{{descricao}}</textarea>
+                                        <br><br>
+                                        <button type="submit" class="btn btn-success my-2">Enviar</button>
+                                    </div>
+
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                {{/each}}
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function myFunction() {
+            var input, filter, cards, cardContainer, title, i;
+            input = document.getElementById("myFilter");
+            filter = input.value.toUpperCase();
+            cardContainer = document.getElementById("CardId");
+            cards = cardContainer.getElementsByClassName("card");
+            for (i = 0; i < cards.length; i++) {
+                title = cards[i].querySelector(".card-title");
+                if (title.innerText.toUpperCase().indexOf(filter) > -1) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
+            });
+        }
+    </script>
+
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
+        }
+    </script>
+
+
+</body>
+
+</html>

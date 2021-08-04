@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>header}}
+
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+            <h1 style="color: black;">Doar</h1>
+            <p class="doar">Contribua com qualquer valor para que nossos projetos possam prosseguir, proporcionando bem
+                estar, lazer, educacao ambiental e, claro,
+                preservando nosso bem precioso: a <b>Natureza!</b>
+            </p>
+        </div>
+
+        {{#if MailSuccess}}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Sucesso!</strong> {{MailSuccess}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {{else if MailError}}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>OPS!</strong> {{MailError}}.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {{/if}}
+
+
+
+        <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+            <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm">
+                    <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal">Viveiro de mudas</h4>
+                    </div>
+                    <div class="card-body">
+                        <h5 style="color: black;">Contribuindo voce ajuda com:</h5>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>Novos plantios</li>
+                            <li>Na compra de equipamentos</li>
+                            <li>A melhoria de nossa infraestrutura</li>
+                            <li>Alguma outra coisa</li>
+                        </ul>
+                        <button name="doar" onclick="document.getElementById('id01').style.display='block'"
+                            style="width:auto;" class="w-100 btn btn-lg btn-outline-primary">Doar qualquer
+                            valor</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm">
+                    <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal">Coleta de Pilhas e Baterias</h4>
+                    </div>
+                    <div class="card-body">
+                        <h5 style="color: black;">Contribuindo voce ajuda com:</h5>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>A manutencao dos coletores</li>
+                            <li>O transporte dos materiais</li>
+                            <li>O destinamento adequado desses itens</li>
+                            <li>Alguma outra coisa</li>
+                        </ul>
+                        <button name="doar" onclick="document.getElementById('id01').style.display='block'"
+                            style="width:auto;" class="w-100 btn btn-lg btn-outline-primary">Doar qualquer
+                            valor</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm">
+                    <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal">Enduro a Pe da Serra</h4>
+                    </div>
+                    <div class="card-body">
+                        <h5 style="color: black;">Contribuindo voce ajuda com:</h5>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>A confeccao de camisetas</li>
+                            <li>Transporte e logistica da organizacao</li>
+                            <li>A premiacao</li>
+                            <li>alguma outra coisa</li>
+                        </ul>
+                        <button name="doar" onclick="document.getElementById('id01').style.display='block'"
+                            style="width:auto;" class="w-100 btn btn-lg btn-outline-primary">Doar qualquer
+                            valor</button>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+    <div id="id01" class="pixmodal">
+
+        <form class="pixmodal-content animate" method="post">
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                    title="Close Modal">&times;</span>
+            </div>
+
+            <div class="container">
+                <center><br>
+                    <h4><b>Faca sua doacao de qualqr valor pelo Qrcode - PIX</b></h4>
+                    <img src="img/qrcode.png" alt="qrCode" width="300px" height="300px">
+                    <h5>Ou por nossa chave pix:<span class="text-muted">128378127327</span></h5>
+
+                    <input type="text" style="width: 300px;" placeholder="Informe seu nome" name="dname" required>
+                    <br>
+                    <input type="text" style="width: 350px;" placeholder="Informe seu email" name="demail" required>
+<br>
+                    <textarea placeholder="Deixe uma mensagem (opcional)" name="dmsg" rows="6" cols="25"></textarea>
+
+                    <button type="submit" action="/doar" onclick="funcAlerta()"
+                        class="btn btn-success my-2">Enviar</button>
+                    <button type="button" class="btn btn-danger my-2"
+                        onclick="document.getElementById('id01').style.display='none'">Cancel</button>
+                </center>
+            </div>
+
+        </form>
+    </div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById('id01');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+
+
+    {{>footer}}
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
